@@ -14,11 +14,21 @@ class CompoundInteresthelper: NSObject {
         
         // Result = P(1 + r/n)nt
         let interestRatePct: Double = ratePct / 100.0
-        let divResult: Double = interestRatePct / Double(timesPerYear)
-        let sumResult: Double = divResult + 1
-        let powerValue: Int = numberOfYears * timesPerYear
-        let amountToMultiplyBy = Int(sumResult) ^ powerValue
+        print(interestRatePct)
         
-        return principal * Double(amountToMultiplyBy)
+        let divResult: Double = interestRatePct / Double(timesPerYear)
+        print(divResult)
+        
+        let sumResult: Double = divResult + 1
+        print(sumResult)
+        
+        let powerValue: Int = numberOfYears * timesPerYear
+        print(powerValue)
+        
+        let amountToMultiplyBy = pow(Double(sumResult), Double(powerValue))
+        print(amountToMultiplyBy)
+        
+        return (principal * Double(amountToMultiplyBy))
+        
     }
 }
