@@ -131,13 +131,16 @@ class ViewController: UIViewController {
         
     }
     
-    func currencyFormater(_ decimalNumber: Double) -> String {
-        let currentLocale = Locale.current
-        let currencySymbol = currentLocale.currencySymbol
+    func currencyFormater(_ numToFormat: Double) -> String {
         
-        let formattedNumber = "\(currencySymbol ?? "$")\(String(format: "%.2f", decimalNumber as CVarArg))"
+        let formattedNumber = numToFormat as NSNumber
+        let formatter = NumberFormatter()
         
-        return formattedNumber
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        
+        return formatter.string(from: formattedNumber)!
+        
     }
 
             
