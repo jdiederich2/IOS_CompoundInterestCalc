@@ -40,11 +40,12 @@ class ViewController: UIViewController {
         resultsTextView.layer.borderWidth = 1
         
     }
+    
 
     @IBAction func calcInterestButton(_ sender: UIButton) {
         validateUserInput()
-        
         calculateCompoundInterest()
+        refreshUI()
     }
     
     
@@ -144,15 +145,19 @@ class ViewController: UIViewController {
     }
     
     
+    
     func refreshUI() {
         principalTextField.text = ""
         rateTextField.text = ""
         numYearsTextField.text = ""
         timesPerYearTextField.text = ""
+        
+        refreshUIKeyboards()
+        
     }
     
     func refreshUIKeyboards() {
-        resignFirstResponder()
+        self.view.endEditing(true)
     }
  
 }
