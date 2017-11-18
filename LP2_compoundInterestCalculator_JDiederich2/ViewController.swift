@@ -128,8 +128,9 @@ class ViewController: UIViewController {
         resultValue = calcInterest.compoundInterest(principalAmount, interestRatePct, numberOfYears, timesPerYear)
 
         resultsTextView.text = "\(currencyFormater(principalAmount)) invested at \(interestRatePct)% for \(numberOfYears) years compounded \(timesPerYear) times per year is \(currencyFormater(resultValue))."
-        
     }
+    
+    
     
     func currencyFormater(_ numToFormat: Double) -> String {
         
@@ -140,20 +141,19 @@ class ViewController: UIViewController {
         formatter.locale = Locale.current
         
         return formatter.string(from: formattedNumber)!
-        
     }
-
-            
-    //
-    //    userInfo.isEmptyField(self.numYearsTextField.text!)
-     //   userInfo.isEmptyField(self.timesPerYearTextField.text!)
-
-     //   userInfo.checkInteger(self.numYearsTextField.text!)
-    //    userInfo.checkInteger(self.timesPerYearTextField.text!)
-        
-      //
-     //   userInfo.checkDecimalNumber(self.rateTextField.text!)
     
     
+    func refreshUI() {
+        principalTextField.text = ""
+        rateTextField.text = ""
+        numYearsTextField.text = ""
+        timesPerYearTextField.text = ""
+    }
+    
+    func refreshUIKeyboards() {
+        resignFirstResponder()
+    }
+ 
 }
 
